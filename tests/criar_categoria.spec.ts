@@ -12,10 +12,6 @@ test.beforeEach(async ({ page }) => {
     await loginPage.go()
     await loginPage.sigIn('admin', '123456')
     await loginPage.userLoggedIn()
-
-    // await page.evaluate(() => {
-    //     window.localStorage.setItem('_tagplus-sa', JSON.stringify([{ sistemaAtual: 'tagplus' }]))
-    // })
 })
 
 test('devo criar categoria', async () => {
