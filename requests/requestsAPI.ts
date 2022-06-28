@@ -34,4 +34,15 @@ export class RequestsAPI {
                 }
             });
     }
+
+    async postProduto(produto: Object) {
+        return this.page.request.post(
+            `http://app.cavalo.q4dev.com.br/tagplus/api/produtos`,
+            {
+                data: produto,
+                headers: {
+                    'Authorization': `Bearer ${process.env.token}`
+                }
+            });
+    }
 }

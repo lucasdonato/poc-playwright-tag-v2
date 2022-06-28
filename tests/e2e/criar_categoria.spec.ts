@@ -1,6 +1,6 @@
 import { test } from '@playwright/test'
-import { LoginPage } from '../pages/login-page'
-import { CategoriaPage } from '../pages/categoria-page'
+import { LoginPage } from '../../pages/login-page'
+import { CategoriaPage } from '../../pages/categoria-page'
 
 let loginPage: LoginPage
 let categoriaPage: CategoriaPage
