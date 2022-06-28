@@ -1,13 +1,10 @@
-import { Page } from '@playwright/test'
 
-export class RequestsAPI {
-    readonly page: Page
-
-    constructor(page: Page) {
+exports.RequestsAPI = class RequestsAPI {
+    constructor(page) {
         this.page = page
     }
 
-    async getJWT(user: string, pass: string) {
+    async getJWT(user, pass) {
         /*Pega o Token JWT*/
         const requestJWT = await this.page.request.post(
             `http://app.cavalo.q4dev.com.br/tagplus/api/login`,
@@ -23,7 +20,7 @@ export class RequestsAPI {
         process.env.token = token
     }
 
-    async postCategoria(categoria: Object) {
+    async postCategoria(categoria) {
         /*Cria a Categoria via API*/
         await this.page.request.post(
             `http://app.cavalo.q4dev.com.br/tagplus/api/categorias`,

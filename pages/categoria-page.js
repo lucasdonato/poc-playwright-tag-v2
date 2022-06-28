@@ -1,9 +1,7 @@
-import { Page, expect } from '@playwright/test'
+const { expect } = require('@playwright/test')
 
-export class CategoriaPage {
-    readonly page: Page
-
-    constructor(page: Page) {
+exports.CategoriaPage = class CategoriaPage {
+    constructor(page) {
         this.page = page
     }
 
@@ -13,19 +11,19 @@ export class CategoriaPage {
         await this.page.click('#menu-sistema-produtos-categorias')
     }
 
-    async cadastrar(desc: string, localizacao: string) {
+    async cadastrar(desc, localizacao) {
         await this.page.click('#btn-novo')
         await this.page.fill('#input-descricao', desc)
         await this.page.fill('#input-localizacao', localizacao)
         await this.page.click('#btn-save-modal')
     }
 
-    async validarCategoriaCriada(expectedMessage: string) {
+    async validarCategoriaCriada(expectedMessage) {
         const alert = this.page.locator('.el-message--success')
         await expect(alert).toHaveText(expectedMessage)
     }
 
-    async pesquisar(target: string) {
+    async pesquisar(target) {
         await this.page.fill('#input-busca-listagem', target)
 
         const list = this.page.locator('div[role=treeitem]')
@@ -40,7 +38,7 @@ export class CategoriaPage {
         await this.page.locator('button', { hasText: 'Sim, apagar' }).click();
     }
 
-    async validaCategoriaApagada(expectedMessage: string) {
+    async validaCategoriaApagada(expectedMessage) {
         const alert = this.page.locator('.el-message--success')
         await expect(alert).toHaveText(expectedMessage)
     }

@@ -1,6 +1,6 @@
-import { PlaywrightTestConfig, devices } from '@playwright/test';
+const { devices } = require('@playwright/test');
 
-const config: PlaywrightTestConfig = {
+const config = {
     //reporter: [['html', { outputFolder: 'report' }]],
     forbidOnly: !!process.env.CI,
     workers: 1,
@@ -19,4 +19,4 @@ const config: PlaywrightTestConfig = {
         },
     ],
 };
-export default config;
+module.exports = config

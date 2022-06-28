@@ -1,8 +1,9 @@
-import faker from 'faker-br'
+const faker = require('faker-br')
 
-export const categoriaFactory = {
+const categoriaFactory = {
     descricao: `Categoria playwright ${faker.commerce.productMaterial()}`,
     tipo: 'P',
     localizacao: null
 }
 
+module.exports = categoriaFactory

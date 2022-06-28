@@ -1,9 +1,7 @@
-import { Page, expect } from '@playwright/test'
+const { expect } = require('@playwright/test')
 
-export class LoginPage {
-    readonly page: Page
-
-    constructor(page: Page) {
+exports.LoginPage = class LoginPage {
+    constructor(page) {
         this.page = page
     }
 
@@ -11,7 +9,7 @@ export class LoginPage {
         await this.page.goto('http://app.cavalo.q4dev.com.br:3001/tagplus/login')
     }
 
-    async sigIn(user: string, password: string) {
+    async sigIn(user, password) {
         await this.page.fill('input[placeholder=Usuário]', user)
         await this.page.fill('input[placeholder=Senha]', password)
         await this.page.click('input[type=submit]')
