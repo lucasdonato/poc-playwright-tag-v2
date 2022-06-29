@@ -6,8 +6,6 @@ let requestsAPI: RequestsAPI
 
 test.beforeEach(async ({ page }) => {
     requestsAPI = new RequestsAPI(page)
-
-    await requestsAPI.getJWT('admin', '123456')
 })
 
 test('devo criar produto', async () => {
