@@ -19,6 +19,6 @@ export class LoginPage {
 
     async userLoggedIn() {
         const title = this.page.locator('.el-card__body .title')
-        await expect(title).toHaveText('Bem-vindo ao TagPlus Beta')
+        await expect(title).toHaveText('Bem-vindo ao TagPlus 2.0')
     }
 }

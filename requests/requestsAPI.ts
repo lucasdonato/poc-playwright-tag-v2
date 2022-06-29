@@ -8,7 +8,6 @@ export class RequestsAPI {
     }
 
     async getJWT(user: string, pass: string) {
-        /*Pega o Token JWT*/
         const requestJWT = await this.page.request.post(
             `http://app.cavalo.q4dev.com.br/tagplus/api/login`,
             {
@@ -43,6 +42,6 @@ export class RequestsAPI {
                 headers: {
                     'Authorization': `Bearer ${process.env.token}`
                 }
-            });
+            })
     }
 }
