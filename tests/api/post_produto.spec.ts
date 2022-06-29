@@ -4,8 +4,8 @@ import { produtoFactory } from '../../factories/produto'
 
 let requestsAPI: RequestsAPI
 
-test.beforeEach(async ({ page }) => {
-    requestsAPI = new RequestsAPI(page)
+test.beforeEach(async () => {
+    requestsAPI = new RequestsAPI()
 })
 
 test('devo criar produto', async () => {

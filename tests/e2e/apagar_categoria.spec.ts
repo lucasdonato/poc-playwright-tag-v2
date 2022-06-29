@@ -11,9 +11,8 @@ let categoriaPage: CategoriaPage
 test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page)
     categoriaPage = new CategoriaPage(page)
-    requestsAPI = new RequestsAPI(page)
+    requestsAPI = new RequestsAPI()
 
-    await requestsAPI.getJWT('admin', '123456')
     await requestsAPI.postCategoria(categoriaFactory)
 
     await loginPage.go()
