@@ -1,12 +1,16 @@
 import { PlaywrightTestConfig, devices } from '@playwright/test';
+require('dotenv').config()
 
 const config: PlaywrightTestConfig = {
-    //reporter: [['html', { outputFolder: 'report' }]],
+    reporter: [['html', { outputFolder: 'report' }]],
     globalSetup: require.resolve('./global-setup'),
     forbidOnly: !!process.env.CI,
     workers: 1,
     retries: process.env.CI ? 2 : 0,
     use: {
+        extraHTTPHeaders: {
+            'Authorization': `Bearer ${process.env.token}`
+        },
         headless: true,
         trace: 'on-first-retry',
         screenshot: 'on',

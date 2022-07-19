@@ -5,4 +5,3 @@ export const categoriaFactory = {
     tipo: 'P',
     localizacao: null
 }
-
